@@ -52,13 +52,55 @@ public class AnalysingClinicalDataTest {
     /**
      * Test of getRawData method, of class AnalysingClinicalData.
      */
+   
 
     /**
      * Test of main method, of class AnalysingClinicalData.
      */
     @Test
     public void testMain() {
+       
+    }
+
+    
+
+    /**
+     * Test of convertData method, of class AnalysingClinicalData.
+     */
+    @Test
+    public void testConvertData() {
+        System.out.println("convertData");
+        float[][] records = new float[10][2];
+        AnalysingClinicalData instance = new AnalysingClinicalData();
+        for(int i =0 ; i<10;i++){
+           records[i][1]= i+2;
+           records[i][0]= instance.getDichotomousData(i);
+       }
+        instance.convertData(records);
+         assertTrue((records[5][1]==0)||(records[5][1]==1));
+        // TODO review the generated test code and remove the default call to fail.
         
     }
+
+    /**
+     * Test of getRawData method, of class AnalysingClinicalData.
+     */
+    @Test
+    public void testAnalysingResult() {
+        System.out.println("analysingResult");
+        float[][] records = new float[10][2];
+        AnalysingClinicalData instance = new AnalysingClinicalData();
+        for(int i =0 ; i<10;i++){
+           records[i][1]= i+3;
+           records[i][0]= instance.getDichotomousData(i);
+       }
+        instance.convertData(records);
+        instance.analysingResult(records);
+        assertTrue((records[3][1]==0)||(records[3][0]==0));
+        // TODO review the generated test code and remove the default call to fail.
+    }
+
+    
+    
     
 }
